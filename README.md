@@ -1,11 +1,11 @@
-# 🧩 Customer Segmentation for Online Retail Business
+#  Customer Segmentation for Online Retail Business
 
 This project performs **Customer Segmentation** using transactional data from an online retail company.  
 The goal is to identify meaningful customer groups through RFM (Recency, Frequency, Monetary) analysis and clustering methods to improve marketing and customer engagement.
 
 ---
 
-## 📊 Project Overview
+##  Project Overview
 **Objective:**  
 To group customers into segments based on their purchase behavior.
 
@@ -18,7 +18,7 @@ To group customers into segments based on their purchase behavior.
 
 ---
 
-## 🧠 Tools & Libraries
+##  Tools & Libraries
 - Python 3  
 - Pandas, NumPy  
 - Matplotlib, Seaborn, Plotly  
