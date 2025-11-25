@@ -1,9 +1,9 @@
-##  Customer Segmentation for Online Retail Business
+#  Customer Segmentation for Online Retail Business
 
 This project explores customer behaviour using online retail transaction data.
 The goal is to group customers into meaningful segments based on Recency, Frequency, and Monetary value (RFM) and use these insights to support better marketing decisions.
 
-# What the Project Does
+## What the Project Does
 
 Cleans and prepares the raw retail dataset
 
@@ -15,7 +15,7 @@ Profiles each segment and analyses their behaviour over time and across countrie
 
 Estimates customer value and simulates different marketing scenarios
 
-# Tools & Libraries
+## Tools & Libraries
 
 Python
 
@@ -27,7 +27,7 @@ Scikit-learn
 
 Jupyter Notebook
 
-# Overview of the Segmentation
+## Overview of the Segmentation
 
 High-Value Loyal Customers: frequent, recent, and major revenue contributors
 
