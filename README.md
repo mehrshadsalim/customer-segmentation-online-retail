@@ -1,45 +1,72 @@
-#  Customer Segmentation for Online Retail Business
+# Customer Segmentation for Online Retail
 
-This project explores customer behaviour using online retail transaction data.
-The goal is to group customers into meaningful segments based on Recency, Frequency, and Monetary value (RFM) and use these insights to support better marketing decisions.
+This project applies RFM-based customer segmentation to an online retail dataset and builds data-driven insights for marketing and strategy. The work is organised into four phases, from data cleaning to scenario analysis.
 
-## What the Project Does
+## Project Goal
 
-Cleans and prepares the raw retail dataset
+The main goal is to group customers into meaningful segments based on their purchasing behaviour (Recency, Frequency, Monetary) and use these segments to support business decisions, such as targeting, retention and campaign design.
 
-Builds RFM features for each customer
+## Data
 
-Applies K-Means clustering and validates the results
+- Source: Online retail transaction data (anonymised)
+- Level: Transaction-level (one row per invoice line)
+- Key fields: transactionno, date, productno, productname, quantity, price, customerno, country
+- Main derived variable: `totalprice = quantity × price`
 
-Profiles each segment and analyses their behaviour over time and across countries
+## Methodology Overview
 
-Estimates customer value and simulates different marketing scenarios
+The analysis is structured into four phases:
 
-## Tools & Libraries
+### Raw Data → Cleaning → RFM Model → K-Means Segmentation
+          → Cluster KPIs → Behavioral Insights → Scenario Simulation
 
-Python
 
-Pandas, NumPy
+### Phase 1 – Data Preparation & RFM Construction (`01_Data_Preparation.ipynb`)
+- Cleaned the raw transaction data (removed missing IDs, invalid quantities/prices, non-positive values).
+- Standardised column names and converted types (dates, numeric fields).
+- Created a customer-level RFM table:
+  - **Recency**: days since last purchase
+  - **Frequency**: number of unique transactions
+  - **Monetary**: total spend per customer
+- Explored distributions, correlations and outliers for the RFM variables.
 
-Matplotlib, Seaborn
+### Phase 2 – Customer Segmentation Modeling (`02_Clustering_Modeling.ipynb`)
+- Applied log-transformation and standard scaling to RFM features.
+- Tested different values of *k* using the Elbow method and Silhouette scores.
+- Selected a 4-cluster K-Means model.
+- Assigned each customer to a cluster and visualised segments using PCA.
+- Saved the final RFM table with cluster labels for later phases.
 
-Scikit-learn
+### Phase 3 – Cluster Insights & Behaviour (`03_Cluster_Insights_and_Recommendations.ipynb`)
+- Computed cluster-level KPIs (average recency, frequency, monetary, revenue share, order value).
+- Labeled clusters with business-friendly names.
+- Ran ANOVA (also on log-transformed RFM values) to confirm that clusters differ significantly.
+- Visualised RFM distributions and pairwise relationships by cluster.
+- Interpreted the segments in terms of customer behaviour and value.
 
-Jupyter Notebook
+### Phase 4 – Strategic Analysis & Scenarios (`04_Advanced_Customer_Segmentation_and_Strategy.ipynb`)
+- Merged transaction-level data with cluster labels.
+- Analysed monthly revenue and active customers per segment.
+- Compared cluster performance across top countries.
+- Built classical RFM scores and compared them with K-Means clusters.
+- Computed a simple CLV-style proxy at cluster level.
+- Simulated marketing scenarios with different conversion rates to estimate potential revenue uplift.
+- Finalised descriptive labels for each segment:
+  - **Cluster 2** – High-Value Loyal Customers  
+  - **Cluster 3** – Mid-Value Regular Buyers  
+  - **Cluster 0** – Occasional / Low-Value Buyers  
+  - **Cluster 1** – Inactive / At-Risk Customers  
 
-## Overview of the Segmentation
+## Repository Structure
 
-High-Value Loyal Customers: frequent, recent, and major revenue contributors
+- `data/`
+  - `online_retail_clean.csv` – cleaned transaction dataset
+  - `rfm_with_clusters.csv` – customer-level RFM with cluster labels
+- `notebooks/`
+  - `01_Data_Preparation.ipynb`
+  - `02_Clustering_Modeling.ipynb`
+  - `03_Cluster_Insights_and_Recommendations.ipynb`
+  - `04_Advanced_Customer_Segmentation_and_Strategy.ipynb`
+- `reports/`
+  - Selected figures and exported tables used for interpretation
 
-Mid-Value Regular Buyers: stable and predictable buyers
-
-Occasional Buyers: low purchase activity but still engaged
-
-At-Risk Customers: long inactivity and low spending
-
-# Purpose of the Work
-
-The segmentation helps identify which groups drive the most value and how marketing actions can be adjusted for each segment.
-These insights can support targeted campaigns, retention programs, and budget planning.
-
----
