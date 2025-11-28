@@ -17,8 +17,7 @@ The main goal is to group customers into meaningful segments based on their purc
 
 The analysis is structured into four phases:
 
-### Raw Data → Cleaning → RFM Model → K-Means Segmentation
-          → Cluster KPIs → Behavioral Insights → Scenario Simulation
+### Raw Data → Cleaning → RFM Model → K-Means Segmentation → Cluster KPIs → Behavioral Insights → Scenario Simulation
 
 
 ### Phase 1 – Data Preparation & RFM Construction (`01_Data_Preparation.ipynb`)
