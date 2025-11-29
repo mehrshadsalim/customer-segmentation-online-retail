@@ -49,7 +49,7 @@ Notebook: [`01_Data_Preparation.ipynb`](notebooks/01_Data_Preparation.ipynb)
 ---
 
 ### Phase 2 – Customer Segmentation Modelling  
-Notebook: [`02_Clustering_Modeling-fixed.ipynb`](02_Clustering_Modeling-fixed.ipynb)  
+Notebook: [`notebooks/02_Clustering_Modeling-fixed.ipynb`](notebooks/02_Clustering_Modeling-fixed.ipynb)  
 - Applied log transformation + StandardScaler  
 - Used **Elbow** and **Silhouette** criteria to evaluate cluster counts  
 - Selected **K-Means (k=4)**  
