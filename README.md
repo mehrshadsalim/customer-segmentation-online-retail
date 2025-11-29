@@ -48,24 +48,50 @@ The analysis is structured into four phases:
 - Analysed monthly revenue and active customers per segment.
 - Compared cluster performance across top countries.
 - Built classical RFM scores and compared them with K-Means clusters.
-- Computed a simple CLV-style proxy at cluster level.
+- Computed a simple CLV-style proxy at cluster level. (CLV=RecencyFrequency×Monetary​)
 - Simulated marketing scenarios with different conversion rates to estimate potential revenue uplift.
 - Finalised descriptive labels for each segment:
   - **Cluster 2** – High-Value Loyal Customers  
   - **Cluster 3** – Mid-Value Regular Buyers  
   - **Cluster 0** – Occasional / Low-Value Buyers  
-  - **Cluster 1** – Inactive / At-Risk Customers  
+  - **Cluster 1** – Inactive / At-Risk Customers
+ 
+## Business Impact
+
+The segmentation enables:
+
+Prioritised marketing spend
+
+Segment-specific messaging
+
+Predictive budgeting using scenario results
+
+CLV-oriented targeting strategies
+
+Country-focused campaign design
+
+Opportunity identification for upsell/retention
 
 ## Repository Structure
+data/
+│   online_retail_clean.csv
+│   rfm_with_clusters.csv
+│
+notebooks/
+│   01_Data_Preparation.ipynb
+│   02_Clustering_Modeling.ipynb
+│   03_Cluster_Insights_and_Recommendations.ipynb
+│   04_Advanced_Customer_Segmentation_and_Strategy.ipynb
+│
 
-- `data/`
-  - `online_retail_clean.csv` – cleaned transaction dataset
-  - `rfm_with_clusters.csv` – customer-level RFM with cluster labels
-- `notebooks/`
-  - `01_Data_Preparation.ipynb`
-  - `02_Clustering_Modeling.ipynb`
-  - `03_Cluster_Insights_and_Recommendations.ipynb`
-  - `04_Advanced_Customer_Segmentation_and_Strategy.ipynb`
-- `reports/`
-  - Selected figures and exported tables used for interpretation
+    Figures and exported tables
+
+
+
+
+## Summary
+
+The project establishes a full pipeline from raw transaction data to clustering, interpretation and actionable marketing strategy.
+The final segmentation is statistically valid, business-friendly, and supported by behavioural analytics across time and geography.
+These insights form a foundation for targeted campaigns, retention efforts, CLV estimation and portfolio optimisation.
 
