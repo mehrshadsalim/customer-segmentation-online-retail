@@ -38,7 +38,7 @@ The analysis is structured into four phases:
 - Assigned each customer to a cluster and visualised segments using PCA.
 - Saved the final RFM table with cluster labels for later phases.
 
-### Phase 3 – Cluster Insights & Behaviour [Phase](notebooks/03_Cluster_Insights_and_Recommendations.ipynb)
+### Phase 3 – Cluster Insights & Behaviour [Phase3](notebooks/03_Customer_Cluster_Profiling_and_Insights.ipynb)
 
 - Computed cluster-level KPIs (average recency, frequency, monetary, revenue share, order value).
 - Labeled clusters with business-friendly names.
