@@ -46,7 +46,7 @@ The analysis is structured into four phases:
 - Visualised RFM distributions and pairwise relationships by cluster.
 - Interpreted the segments in terms of customer behaviour and value.
 
-### Phase 4 – Strategic Analysis & Scenarios [Phase 4](notebooks/04_Advanced_Customer_Segmentation_and_Strategy.ipynb)
+### Phase 4 – Strategic Analysis & Scenarios [Phase 4](notebooks/04_Advanced_Customer_Segmentation_and_Strategy1.ipynb)
 
 - Merged transaction-level data with cluster labels.
 - Analysed monthly revenue and active customers per segment.
