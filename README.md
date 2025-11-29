@@ -1,84 +1,134 @@
-# Customer Segmentation for Online Retail
+# Customer Segmentation for Online Retail  
+A full analytical pipeline for behaviour-based customer segmentation using RFM modelling, K-Means clustering and strategic scenario analysis.  
+The project is structured end-to-end from raw data cleaning to business-oriented insights.
 
-This project applies RFM-based customer segmentation to an online retail dataset and builds data-driven insights for marketing and strategy. The work is organised into four phases, from data cleaning to scenario analysis.
+---
 
-## Project Goal
+## 1. Project Overview
+This project applies a data-driven segmentation approach to an online retail dataset to understand customer behaviour, identify high-value groups, and inform marketing strategy.  
+The workflow builds a complete pipeline:
 
-The main goal is to group customers into meaningful segments based on their purchasing behaviour (Recency, Frequency, Monetary) and use these segments to support business decisions, such as targeting, retention and campaign design.
+**Raw Data → Cleaning → RFM → K-Means → Cluster Profiling → Behavioural Analysis → Strategic Scenarios**
 
-## Data
+---
 
-- Source: Online retail transaction data (anonymised)
-- Level: Transaction-level (one row per invoice line)
-- Key fields: transactionno, date, productno, productname, quantity, price, customerno, country
-- Main derived variable: `totalprice = quantity × price`
+## 2. Objectives
+- Construct a robust RFM (Recency, Frequency, Monetary) model  
+- Apply clustering to segment customers into meaningful behavioural groups  
+- Validate cluster separation using statistical tests  
+- Analyse segment behaviour over time and across countries  
+- Compare classical RFM scoring with machine-learning segmentation  
+- Build CLV-oriented performance indicators  
+- Run scenario-based revenue simulations for marketing decisions  
 
-## Methodology Overview
+---
 
-The analysis is structured into four phases:
+## 3. Dataset
+- **Source:** anonymised online retail transaction history  
+- **Granularity:** one row per invoice line  
+- **Key fields:**  
+  `transactionno`, `date`, `productno`, `productname`, `quantity`, `price`,  
+  `customerno`, `country`  
+- **Derived variables:**  
+  `totalprice = quantity × price` 
 
-### Raw Data → Cleaning → RFM Model → K-Means Segmentation → Cluster KPIs → Behavioral Insights → Scenario Simulation
+---
 
+## 4. Methodology
 
-### Phase 1 – Data Preparation & RFM Construction [Phase 1](notebooks/01_Data_Preparation.ipynb)
+### Phase 1 – Data Preparation & RFM Construction  
+Notebook: [`01_Data_Preparation.ipynb`](notebooks/01_Data_Preparation.ipynb)  
+- Cleaned invalid rows (missing customer IDs, negative quantities/prices)  
+- Standardised column names and data types  
+- Computed customer-level **RFM metrics**  
+  - Recency = days since last purchase  
+  - Frequency = number of transactions  
+  - Monetary = total spend  
+- Performed exploratory analysis on distribution, skewness, outliers  
 
-- Cleaned the raw transaction data (removed missing IDs, invalid quantities/prices, non-positive values).
-- Standardised column names and converted types (dates, numeric fields).
-- Created a customer-level RFM table:
-  - **Recency**: days since last purchase
-  - **Frequency**: number of unique transactions
-  - **Monetary**: total spend per customer
-- Explored distributions, correlations and outliers for the RFM variables.
+---
 
-### Phase 2 – Customer Segmentation Modeling [Phase 2](notebooks/02_Clustering_Modeling-fixed.ipynb)
+### Phase 2 – Customer Segmentation Modelling  
+Notebook: [`02_Clustering_Modeling-fixed.ipynb`](02_Clustering_Modeling-fixed.ipynb)  
+- Applied log transformation + StandardScaler  
+- Used **Elbow** and **Silhouette** criteria to evaluate cluster counts  
+- Selected **K-Means (k=4)**  
+- Visualised segment structure using PCA (2D space)  
+- Exported final dataset: `rfm_with_clusters.csv`  
 
-- Applied log-transformation and standard scaling to RFM features.
-- Tested different values of *k* using the Elbow method and Silhouette scores.
-- Selected a 4-cluster K-Means model.
-- Assigned each customer to a cluster and visualised segments using PCA.
-- Saved the final RFM table with cluster labels for later phases.
+---
 
-### Phase 3 – Cluster Insights & Behaviour [Phase3](notebooks/03_Customer_Cluster_Profiling_and_Insights.ipynb)
+### Phase 3 – Cluster Insights & Behaviour  
+Notebook: [`03_Customer_Cluster_Profiling_and_Insights.ipynb`](03_Customer_Cluster_Profiling_and_Insights.ipynb)  
+- Computed cluster-level KPIs  
+  - avg recency, avg frequency, avg monetary  
+  - revenue share  
+  - avg order value  
+- Assigned business-friendly labels  
+- Conducted **ANOVA** (raw + log-transformed) to confirm statistical separation  
+- Visualised RFM distributions and pairwise relationships  
+- Interpreted segment roles and value contribution  
 
-- Computed cluster-level KPIs (average recency, frequency, monetary, revenue share, order value).
-- Labeled clusters with business-friendly names.
-- Ran ANOVA (also on log-transformed RFM values) to confirm that clusters differ significantly.
-- Visualised RFM distributions and pairwise relationships by cluster.
-- Interpreted the segments in terms of customer behaviour and value.
+---
 
-### Phase 4 – Strategic Analysis & Scenarios [Phase 4](notebooks/04_Advanced_Customer_Segmentation_and_Strategy1.ipynb)
+### Phase 4 – Strategic Analysis & Scenario Simulation  
+Notebook: [`04_Advanced_Customer_Segmentation_and_Strategy1.ipynb`](04_Advanced_Customer_Segmentation_and_Strategy1.ipynb)  
+- Merged transactions with cluster labels  
+- Analysed monthly revenue + active customers per segment  
+- Performed country-level revenue decomposition for top markets  
+- Built classical RFM score and compared with machine-learning clusters  
+- Computed **CLV-style proxy:**  
+  \[
+  CLV \approx \frac{\text{Frequency} \times \text{Monetary}}{\text{Recency}}
+  \]
+- Simulated three marketing scenarios (1%, 5%, 10% conversion)  
+- Identified highest-impact groups for targeted campaigns  
 
-- Merged transaction-level data with cluster labels.
-- Analysed monthly revenue and active customers per segment.
-- Compared cluster performance across top countries.
-- Built classical RFM scores and compared them with K-Means clusters.
-- Computed a simple CLV-style proxy at cluster level. (CLV=RecencyFrequency×Monetary​)
-- Simulated marketing scenarios with different conversion rates to estimate potential revenue uplift.
-- Finalised descriptive labels for each segment:
-  - **Cluster 2** – High-Value Loyal Customers  
-  - **Cluster 3** – Mid-Value Regular Buyers  
-  - **Cluster 0** – Occasional / Low-Value Buyers  
-  - **Cluster 1** – Inactive / At-Risk Customers
- 
-## Business Impact
+---
 
-The segmentation enables:
+## 5. Final Segment Labels
+| Cluster | Segment Name                       | Description |
+|---------|-------------------------------------|-------------|
+| **2**   | High-Value Loyal Customers          | Recent, frequent and high-spending; core value contributors |
+| **3**   | Mid-Value Regular Buyers            | Stable activity, moderate spending; revenue backbone |
+| **0**   | Occasional / Low-Value Buyers       | Low frequency and value; growth potential |
+| **1**   | Inactive / At-Risk Customers        | Long recency periods, weak spend; win-back candidates |
 
-Prioritised marketing spend
+---
 
-Segment-specific messaging
+## 6. Business Impact
+The segmentation provides a practical foundation for:  
+- Targeted and personalised marketing  
+- Budget prioritisation toward high-value groups  
+- CLV-oriented customer lifecycle management  
+- Retention and upsell strategies  
+- Country-specific campaign design  
+- Revenue opportunity modelling under multiple scenarios  
 
-Predictive budgeting using scenario results
+---
 
-CLV-oriented targeting strategies
+## 7. Repository Structure
+```
+project/
+│
+├── data/
+│   ├── online_retail_clean.csv
+│   └── rfm_with_clusters.csv
+│
+├── notebooks/
+│   ├── 01_Data_Preparation.ipynb
+│   ├── 02_Clustering_Modeling.ipynb
+│   ├── 03_Cluster_Insights_and_Recommendations.ipynb
+│   └── 04_Advanced_Customer_Segmentation_and_Strategy.ipynb
+│
+└── reports/
+    └── figures, tables and derived outputs
+```
 
-Country-focused campaign design
+---
 
-Opportunity identification for upsell/retention
-
-## Summary
-
-The project establishes a full pipeline from raw transaction data to clustering, interpretation and actionable marketing strategy.
-The final segmentation is statistically valid, business-friendly, and supported by behavioural analytics across time and geography.
-These insights form a foundation for targeted campaigns, retention efforts, CLV estimation and portfolio optimisation.
+## 8. Summary
+This project delivers an academically rigorous and industry-oriented customer segmentation framework.  
+The results demonstrate that the K-Means model produces clear, statistically valid segments that align with business intuition and classical RFM scoring.  
+The combined behavioural, geographic and scenario-based analyses provide actionable insights for targeted marketing, CLV estimation and commercial strategy development.
 
