@@ -30,7 +30,7 @@ The analysis is structured into four phases:
   - **Monetary**: total spend per customer
 - Explored distributions, correlations and outliers for the RFM variables.
 
-### Phase 2 – Customer Segmentation Modeling [Phase 2](notebooks/02_Clustering_Modeling.ipynb)
+### Phase 2 – Customer Segmentation Modeling [Phase 2](notebooks/02_Clustering_Modeling-fixed.ipynb)
 
 - Applied log-transformation and standard scaling to RFM features.
 - Tested different values of *k* using the Elbow method and Silhouette scores.
