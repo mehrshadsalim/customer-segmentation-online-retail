@@ -20,7 +20,8 @@ The analysis is structured into four phases:
 ### Raw Data → Cleaning → RFM Model → K-Means Segmentation → Cluster KPIs → Behavioral Insights → Scenario Simulation
 
 
-### Phase 1 – Data Preparation & RFM Construction (`01_Data_Preparation.ipynb`)
+### Phase 1 – Data Preparation & RFM Construction [Phase 1 – Data Preparation](notebooks/01_Data_Preparation.ipynb)
+
 - Cleaned the raw transaction data (removed missing IDs, invalid quantities/prices, non-positive values).
 - Standardised column names and converted types (dates, numeric fields).
 - Created a customer-level RFM table:
@@ -83,8 +84,9 @@ notebooks/
 │   03_Cluster_Insights_and_Recommendations.ipynb
 │   04_Advanced_Customer_Segmentation_and_Strategy.ipynb
 │
-
+reports/
     Figures and exported tables
+
 
 
 
