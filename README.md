@@ -37,7 +37,7 @@ The workflow builds a complete pipeline:
 ## 4. Methodology
 
 ### Phase 1 – Data Preparation & RFM Construction  
-Notebook: [`01_Data_Preparation.ipynb`](notebooks/01_Data_Preparation.ipynb)  
+Notebook: [`Phase 1`](notebooks/01_Data_Preparation.ipynb)  
 - Cleaned invalid rows (missing customer IDs, negative quantities/prices)  
 - Standardised column names and data types  
 - Computed customer-level **RFM metrics**  
@@ -49,7 +49,7 @@ Notebook: [`01_Data_Preparation.ipynb`](notebooks/01_Data_Preparation.ipynb)
 ---
 
 ### Phase 2 – Customer Segmentation Modelling  
-Notebook: [`notebooks/02_Clustering_Modeling-fixed.ipynb`](notebooks/02_Clustering_Modeling-fixed.ipynb)  
+Notebook: [`Phase 2`](notebooks/02_Clustering_Modeling-fixed.ipynb)  
 - Applied log transformation + StandardScaler  
 - Used **Elbow** and **Silhouette** criteria to evaluate cluster counts  
 - Selected **K-Means (k=4)**  
@@ -59,7 +59,7 @@ Notebook: [`notebooks/02_Clustering_Modeling-fixed.ipynb`](notebooks/02_Clusteri
 ---
 
 ### Phase 3 – Cluster Insights & Behaviour  
-Notebook: [`03_Customer_Cluster_Profiling_and_Insights.ipynb`](03_Customer_Cluster_Profiling_and_Insights.ipynb)  
+Notebook: [`Phase 3`](notebooks/03_Customer_Cluster_Profiling_and_Insights.ipynb)  
 - Computed cluster-level KPIs  
   - avg recency, avg frequency, avg monetary  
   - revenue share  
@@ -72,7 +72,7 @@ Notebook: [`03_Customer_Cluster_Profiling_and_Insights.ipynb`](03_Customer_Clust
 ---
 
 ### Phase 4 – Strategic Analysis & Scenario Simulation  
-Notebook: [`04_Advanced_Customer_Segmentation_and_Strategy1.ipynb`](04_Advanced_Customer_Segmentation_and_Strategy1.ipynb)  
+Notebook: [`Phase 4`](notebooks/04_Advanced_Customer_Segmentation_and_Strategy1.ipynb)  
 - Merged transactions with cluster labels  
 - Analysed monthly revenue + active customers per segment  
 - Performed country-level revenue decomposition for top markets  
@@ -121,8 +121,7 @@ project/
 │   ├── 03_Cluster_Insights_and_Recommendations.ipynb
 │   └── 04_Advanced_Customer_Segmentation_and_Strategy.ipynb
 │
-└── reports/
-    └── figures, tables and derived outputs
+└── 
 ```
 
 ---
