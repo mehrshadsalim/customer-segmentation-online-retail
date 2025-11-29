@@ -20,7 +20,7 @@ The analysis is structured into four phases:
 ### Raw Data → Cleaning → RFM Model → K-Means Segmentation → Cluster KPIs → Behavioral Insights → Scenario Simulation
 
 
-### Phase 1 – Data Preparation & RFM Construction [Phase 1 – Data Preparation](notebooks/01_Data_Preparation.ipynb)
+### Phase 1 – Data Preparation & RFM Construction [Phase 1](notebooks/01_Data_Preparation.ipynb)
 
 - Cleaned the raw transaction data (removed missing IDs, invalid quantities/prices, non-positive values).
 - Standardised column names and converted types (dates, numeric fields).
@@ -30,21 +30,24 @@ The analysis is structured into four phases:
   - **Monetary**: total spend per customer
 - Explored distributions, correlations and outliers for the RFM variables.
 
-### Phase 2 – Customer Segmentation Modeling (`02_Clustering_Modeling.ipynb`)
+### Phase 2 – Customer Segmentation Modeling [Phase 2](notebooks/02_Clustering_Modeling.ipynb)
+
 - Applied log-transformation and standard scaling to RFM features.
 - Tested different values of *k* using the Elbow method and Silhouette scores.
 - Selected a 4-cluster K-Means model.
 - Assigned each customer to a cluster and visualised segments using PCA.
 - Saved the final RFM table with cluster labels for later phases.
 
-### Phase 3 – Cluster Insights & Behaviour (`03_Cluster_Insights_and_Recommendations.ipynb`)
+### Phase 3 – Cluster Insights & Behaviour [Phase](notebooks/03_Cluster_Insights_and_Recommendations.ipynb)
+
 - Computed cluster-level KPIs (average recency, frequency, monetary, revenue share, order value).
 - Labeled clusters with business-friendly names.
 - Ran ANOVA (also on log-transformed RFM values) to confirm that clusters differ significantly.
 - Visualised RFM distributions and pairwise relationships by cluster.
 - Interpreted the segments in terms of customer behaviour and value.
 
-### Phase 4 – Strategic Analysis & Scenarios (`04_Advanced_Customer_Segmentation_and_Strategy.ipynb`)
+### Phase 4 – Strategic Analysis & Scenarios [Phase 4](notebooks/04_Advanced_Customer_Segmentation_and_Strategy.ipynb)
+
 - Merged transaction-level data with cluster labels.
 - Analysed monthly revenue and active customers per segment.
 - Compared cluster performance across top countries.
@@ -72,24 +75,6 @@ CLV-oriented targeting strategies
 Country-focused campaign design
 
 Opportunity identification for upsell/retention
-
-## Repository Structure
-data/
-│   online_retail_clean.csv
-│   rfm_with_clusters.csv
-│
-notebooks/
-│   01_Data_Preparation.ipynb
-│   02_Clustering_Modeling.ipynb
-│   03_Cluster_Insights_and_Recommendations.ipynb
-│   04_Advanced_Customer_Segmentation_and_Strategy.ipynb
-│
-reports/
-    Figures and exported tables
-
-
-
-
 
 ## Summary
 
